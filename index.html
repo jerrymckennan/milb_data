@@ -3,13 +3,13 @@
 <body>
 
 <h1>Toledo BIP data</h1>
-<table border="1" id="table"></table>
+<table border="1" id="tol_bip_table"></table>
 
 <script>
 fetch('tol_bip.json')
   .then(res => res.json())
   .then(data => {
-    const table = document.getElementById('table');
+    const table = document.getElementById('tol_bip_table');
 
     // Create header row
     const header = document.createElement('tr');
@@ -36,13 +36,13 @@ fetch('tol_bip.json')
 </script>
 
 <h1>Lakeland BIP data</h1>
-<table border="1" id="table"></table>
+<table border="1" id="lak_bip_table"></table>
 
 <script>
 fetch('lak_bip.json')
   .then(res => res.json())
   .then(data => {
-    const table = document.getElementById('table');
+    const table = document.getElementById('lak_bip_table');
 
     // Create header row
     const header = document.createElement('tr');
