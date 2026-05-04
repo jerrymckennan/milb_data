@@ -55,6 +55,33 @@
           });
         });
       </script>
+      <h1>Lakeland pitching metrics</h1>
+      <table border="1" id="lak_pitch_metrics_table"></table>
+      <script>
+      fetch('lak_pitchers.json')
+        .then(res => res.json())
+        .then(data => {
+          const table = document.getElementById('lak_pitch_metrics_table');
+          // Create header row
+          const header = document.createElement('tr');
+          Object.keys(data[0]).forEach(key => {
+            const th = document.createElement('th');
+            th.textContent = key;
+            header.appendChild(th);
+          });
+          table.appendChild(header);
+          // Create data rows
+          data.forEach(item => {
+            const row = document.createElement('tr');
+            Object.values(item).forEach(value => {
+              const td = document.createElement('td');
+              td.textContent = value;
+              row.appendChild(td);
+            });
+            table.appendChild(row);
+          });
+        });
+      </script>
     </div>
   </body>
 </html>
