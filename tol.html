@@ -56,12 +56,12 @@
         });
       </script>
     <h1>Toledo pitching metrics</h1>
-      <table border="1" id="tol_pit_metrics_table"></table>
+      <table border="1" id="tol_pitch_metrics_table"></table>
       <script>
       fetch('tol_pitchers.json')
         .then(res => res.json())
         .then(data => {
-          const table = document.getElementById('tol_pit_metrics_table');
+          const table = document.getElementById('tol_pitch_metrics_table');
           // Create header row
           const header = document.createElement('tr');
           Object.keys(data[0]).forEach(key => {
