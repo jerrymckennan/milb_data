@@ -42,6 +42,33 @@
             });
           });
         </script>
+        <h1>Toledo hit metrics</h1>
+        <table border="1" id="tol_hit_metrics_table"></table>
+        <script>
+        fetch('tol_hit_metrics.json')
+          .then(res => res.json())
+          .then(data => {
+            const table = document.getElementById('tol_hit_metrics_table');
+            // Create header row
+            const header = document.createElement('tr');
+            Object.keys(data[0]).forEach(key => {
+              const th = document.createElement('th');
+              th.textContent = key;
+              header.appendChild(th);
+            });
+            table.appendChild(header);
+            // Create data rows
+            data.forEach(item => {
+              const row = document.createElement('tr');
+              Object.values(item).forEach(value => {
+                const td = document.createElement('td');
+                td.textContent = value;
+                row.appendChild(td);
+              });
+              table.appendChild(row);
+            });
+          });
+        </script>
       </div>
   
       <div class="LAK">
@@ -52,6 +79,33 @@
           .then(res => res.json())
           .then(data => {
             const table = document.getElementById('lak_bip_table');
+            // Create header row
+            const header = document.createElement('tr');
+            Object.keys(data[0]).forEach(key => {
+              const th = document.createElement('th');
+              th.textContent = key;
+              header.appendChild(th);
+            });
+            table.appendChild(header);
+            // Create data rows
+            data.forEach(item => {
+              const row = document.createElement('tr');
+              Object.values(item).forEach(value => {
+                const td = document.createElement('td');
+                td.textContent = value;
+                row.appendChild(td);
+              });
+              table.appendChild(row);
+            });
+          });
+        </script>
+        <h1>Lakeland hit metrics</h1>
+        <table border="1" id="lak_hit_metrics_table"></table>
+        <script>
+        fetch('lak_hit_metrics.json')
+          .then(res => res.json())
+          .then(data => {
+            const table = document.getElementById('lak_hit_metrics_table');
             // Create header row
             const header = document.createElement('tr');
             Object.keys(data[0]).forEach(key => {
