@@ -1,77 +1,69 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-  <div class="split-container">
-    <div class="TOL">
-      <h1>Toledo BIP data</h1>
-      <table border="1" id="tol_bip_table"></table>
-      
-      <script>
-      fetch('tol_bip.json')
-        .then(res => res.json())
-        .then(data => {
-          const table = document.getElementById('tol_bip_table');
-      
-          // Create header row
-          const header = document.createElement('tr');
-          Object.keys(data[0]).forEach(key => {
-            const th = document.createElement('th');
-            th.textContent = key;
-            header.appendChild(th);
-          });
-          table.appendChild(header);
-      
-          // Create data rows
-          data.forEach(item => {
-            const row = document.createElement('tr');
-      
-            Object.values(item).forEach(value => {
-              const td = document.createElement('td');
-              td.textContent = value;
-              row.appendChild(td);
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="containers">
+      <div class="TOL">
+        <h1>Toledo BIP data</h1>
+        <table border="1" id="tol_bip_table"></table>
+        <script>
+        fetch('tol_bip.json')
+          .then(res => res.json())
+          .then(data => {
+            const table = document.getElementById('tol_bip_table');
+            // Create header row
+            const header = document.createElement('tr');
+            Object.keys(data[0]).forEach(key => {
+              const th = document.createElement('th');
+              th.textContent = key;
+              header.appendChild(th);
             });
-      
-            table.appendChild(row);
-          });
-        });
-      </script>
-    </div>
-
-    <div class="LAK">
-      <h1>Lakeland BIP data</h1>
-      <table border="1" id="lak_bip_table"></table>
-      
-      <script>
-      fetch('lak_bip.json')
-        .then(res => res.json())
-        .then(data => {
-          const table = document.getElementById('lak_bip_table');
-      
-          // Create header row
-          const header = document.createElement('tr');
-          Object.keys(data[0]).forEach(key => {
-            const th = document.createElement('th');
-            th.textContent = key;
-            header.appendChild(th);
-          });
-          table.appendChild(header);
-      
-          // Create data rows
-          data.forEach(item => {
-            const row = document.createElement('tr');
-      
-            Object.values(item).forEach(value => {
-              const td = document.createElement('td');
-              td.textContent = value;
-              row.appendChild(td);
+            table.appendChild(header);
+            // Create data rows
+            data.forEach(item => {
+              const row = document.createElement('tr');
+              Object.values(item).forEach(value => {
+                const td = document.createElement('td');
+                td.textContent = value;
+                row.appendChild(td);
+              });
+              table.appendChild(row);
             });
-      
-            table.appendChild(row);
           });
-        });
-      </script>
+        </script>
+      </div>
+  
+      <div class="LAK">
+        <h1>Lakeland BIP data</h1>
+        <table border="1" id="lak_bip_table"></table>
+        <script>
+        fetch('lak_bip.json')
+          .then(res => res.json())
+          .then(data => {
+            const table = document.getElementById('lak_bip_table');
+            // Create header row
+            const header = document.createElement('tr');
+            Object.keys(data[0]).forEach(key => {
+              const th = document.createElement('th');
+              th.textContent = key;
+              header.appendChild(th);
+            });
+            table.appendChild(header);
+            // Create data rows
+            data.forEach(item => {
+              const row = document.createElement('tr');
+              Object.values(item).forEach(value => {
+                const td = document.createElement('td');
+                td.textContent = value;
+                row.appendChild(td);
+              });
+              table.appendChild(row);
+            });
+          });
+        </script>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
