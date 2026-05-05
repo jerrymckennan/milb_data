@@ -82,6 +82,7 @@
       </script>
       <h1>Lakeland pitching metrics</h1>
       <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
+      <input type="text" id="pitch_input" onkeyup="pitcher_filter()" placeholder="Search for pitches.." title="Type in a pitch">
       <table border="0" id="lak_pitch_metrics_table"></table>
       <script>
       fetch('lak_pitchers.json')
@@ -150,6 +151,21 @@
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
           td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+        input = document.getElementById("pitch_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("lak_pitch_metrics_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
           if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
