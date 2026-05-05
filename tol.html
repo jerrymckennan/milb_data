@@ -1,7 +1,32 @@
 <html>
+  <head>
+    <style>
+      table {
+        border-style: hidden;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid black;
+        border-radius: 10px;
+        border-collapse: collapse;
+        text-align: center;
+        font-family: Georgia, serif;
+      }
+      tr:hover td {
+        background-color: #D6EEEE;
+      }
+      .lak_bip_table {
+        border-collapse: collapse;
+      }
+      h1 {
+        font-family: Georgia, serif;
+      }
+    </style>
+  </head>
   <body>
     <div class="TOL">
       <h1>Toledo BIP data</h1>
+      <input type="text" id="batter_input" onkeyup="batter_filter()" placeholder="Search for names.." title="Type in a name">
       <table border="1" id="tol_bip_table"></table>
       <script>
       fetch('tol_bip.json')
@@ -56,6 +81,8 @@
         });
       </script>
     <h1>Toledo pitching metrics</h1>
+      <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
+      <input type="text" id="pitch_input" onkeyup="pitch_filter()" placeholder="Search for pitches.." title="Type in a pitch">
       <table border="1" id="tol_pitch_metrics_table"></table>
       <script>
       fetch('tol_pitchers.json')
@@ -81,6 +108,77 @@
             table.appendChild(row);
           });
         });
+      </script>
+      <script>
+      function batter_filter() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("batter_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tol_bip_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+        table = document.getElementById("tol_hit_metrics_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+      </script>
+      <script>
+      function pitcher_filter() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("pitcher_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tol_pitch_metrics_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+      function pitch_filter() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("pitch_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tol_pitch_metrics_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
       </script>
     </div>
   </body>
