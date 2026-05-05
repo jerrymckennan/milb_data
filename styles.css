@@ -15,6 +15,21 @@ tr:hover td {
 tr.selected td {
   background-color: #D6EEEE;
 }
+.primary {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+.containers {
+  display: flex;
+}
+.TOL, .LAK {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
 .lak_bip_table {
   border-collapse: collapse;
 }
