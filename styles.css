@@ -1,10 +1,26 @@
-<style>
-.containers {
-  display: flex;
+table {
+  border-style: hidden;
+  border-collapse: collapse;
 }
-
-.TOL, .LAK {
-  width: 50%;
-  padding: 10px;
+th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: Georgia, serif;
 }
-</style>
+tr:hover td {
+  background-color: #D6EEEE;
+}
+tr.selected td {
+  background-color: #D6EEEE;
+}
+.lak_bip_table {
+  border-collapse: collapse;
+}
+.tol_bip_table {
+  border-collapse: collapse;
+}
+h1 {
+  font-family: Georgia, serif;
+}
