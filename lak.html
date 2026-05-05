@@ -1,12 +1,8 @@
 <html>
-  <head>
-    <style>
-    </style>
-  </head>
   <body>
     <div class="LAK">
       <h1>Lakeland BIP data</h1>
-      <table border="1" id="lak_table"></table>
+      <table border="1" id="lak_bip_table"></table>
       <script>
       fetch('lak_bip.json')
         .then(res => res.json())
@@ -33,7 +29,7 @@
         });
       </script>
       <h1>Lakeland hit metrics</h1>
-      <table border="1" id="lak_table"></table>
+      <table border="1" id="lak_hit_metrics_table"></table>
       <script>
       fetch('lak_hit_metrics.json')
         .then(res => res.json())
@@ -60,7 +56,7 @@
         });
       </script>
       <h1>Lakeland pitching metrics</h1>
-      <table border="1" id="lak_table"></table>
+      <table border="1" id="lak_pitch_metrics_table"></table>
       <script>
       fetch('lak_pitchers.json')
         .then(res => res.json())
