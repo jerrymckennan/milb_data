@@ -4,6 +4,7 @@
       table, th, td {
         border: 1px solid black;
         border-radius: 10px;
+        border-collapse: collapse;
         text-align: center;
         font-family: Georgia, serif;
       }
@@ -13,15 +14,15 @@
       .lak_bip_table {
         border-collapse: collapse;
       }
-      .LAK {
-        outline: none;
+      h1 {
+        font-family: Georgia, serif;
       }
     </style>
   </head>
   <body>
     <div class="LAK">
       <h1>Lakeland BIP data</h1>
-      <table border="1" id="lak_bip_table"></table>
+      <table border="0" id="lak_bip_table"></table>
       <script>
       fetch('lak_bip.json')
         .then(res => res.json())
@@ -48,7 +49,7 @@
         });
       </script>
       <h1>Lakeland hit metrics</h1>
-      <table border="1" id="lak_hit_metrics_table"></table>
+      <table border="0" id="lak_hit_metrics_table"></table>
       <script>
       fetch('lak_hit_metrics.json')
         .then(res => res.json())
@@ -75,7 +76,7 @@
         });
       </script>
       <h1>Lakeland pitching metrics</h1>
-      <table border="1" id="lak_pitch_metrics_table"></table>
+      <table border="0" id="lak_pitch_metrics_table"></table>
       <script>
       fetch('lak_pitchers.json')
         .then(res => res.json())
