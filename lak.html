@@ -55,37 +55,6 @@
             table.appendChild(row);
           });
         });
-        Object.keys(data[0]).forEach(key => {
-          const th = document.createElement('th');
-          th.textContent = key;
-        
-          th.style.cursor = "pointer";
-        
-          th.addEventListener("click", () => {
-            sortTable(key);
-          });
-        
-          header.appendChild(th);
-        });
-        let sortDirection = 1; // 1 = ascending, -1 = descending
-  
-        function sortTable(column) {
-          currentData.sort((a, b) => {
-            let valA = a[column];
-            let valB = b[column];
-        
-            // Try numeric sort if possible
-            if (!isNaN(valA) && !isNaN(valB)) {
-              return (valA - valB) * sortDirection;
-            }
-        
-            // Otherwise string sort
-            return valA.toString().localeCompare(valB.toString()) * sortDirection;
-          });
-        
-          sortDirection *= -1; // toggle direction
-          renderTable(currentData);
-        }
       </script>
       <h1>Lakeland hit metrics</h1>
       <table border="0" id="lak_hit_metrics_table"></table>
