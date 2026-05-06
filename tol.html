@@ -1,29 +1,5 @@
 <html>
   <head>
-    <!--
-    <style>
-      table {
-        border-style: hidden;
-        border-collapse: collapse;
-      }
-      th, td {
-        border: 1px solid black;
-        border-radius: 10px;
-        border-collapse: collapse;
-        text-align: center;
-        font-family: Georgia, serif;
-      }
-      tr:hover td {
-        background-color: #D6EEEE;
-      }
-      .tol_bip_table {
-        border-collapse: collapse;
-      }
-      h1 {
-        font-family: Georgia, serif;
-      }
-    </style>
-    -->
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -63,6 +39,33 @@
         .then(res => res.json())
         .then(data => {
           const table = document.getElementById('tol_hit_metrics_table');
+          // Create header row
+          const header = document.createElement('tr');
+          Object.keys(data[0]).forEach(key => {
+            const th = document.createElement('th');
+            th.textContent = key;
+            header.appendChild(th);
+          });
+          table.appendChild(header);
+          // Create data rows
+          data.forEach(item => {
+            const row = document.createElement('tr');
+            Object.values(item).forEach(value => {
+              const td = document.createElement('td');
+              td.textContent = value;
+              row.appendChild(td);
+            });
+            table.appendChild(row);
+          });
+        });
+      </script>
+      <h1>Toledo swing metrics</h1>
+      <table border="1" id="tol_swing_metrics_table"></table>
+      <script>
+      fetch('tol_swing.json')
+        .then(res => res.json())
+        .then(data => {
+          const table = document.getElementById('tol_swing_metrics_table');
           // Create header row
           const header = document.createElement('tr');
           Object.keys(data[0]).forEach(key => {
@@ -131,6 +134,19 @@
           }       
         }
         table = document.getElementById("tol_hit_metrics_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+        table = document.getElementById("tol_swing_metrics_table");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
           td = tr[i].getElementsByTagName("td")[0];
