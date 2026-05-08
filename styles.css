@@ -15,6 +15,10 @@ tr:hover td {
 tr.selected td {
   background-color: #D6EEEE;
 }
+input {
+  width: 200px;
+  height: 15px;
+}
 .primary {
   text-align: center;
   font-family: Georgia, serif;
