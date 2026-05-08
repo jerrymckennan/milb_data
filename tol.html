@@ -5,7 +5,9 @@
   <body>
     <div class="TOL">
       <h1>Toledo BIP data</h1>
+      <p>Use the below text box to filter the hitter charts by player:</p>
       <input type="text" id="batter_input" onkeyup="batter_filter()" placeholder="Search for names.." title="Type in a name">
+      <p></p>
       <table border="1" id="tol_bip_table"></table>
       <script>
       fetch('tol_bip.json')
@@ -87,8 +89,10 @@
         });
       </script>
     <h1>Toledo pitching metrics</h1>
+      <p>Use the first box to filter by pitcher, second box to filter by pitch:</p>
       <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
       <input type="text" id="pitch_input" onkeyup="pitch_filter()" placeholder="Search for pitches.." title="Type in a pitch">
+      <p></p>
       <table border="1" id="tol_pitch_metrics_table"></table>
       <script>
       fetch('tol_pitchers.json')
