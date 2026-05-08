@@ -1,7 +1,6 @@
 table {
   border-style: hidden;
   border-collapse: collapse;
-  vertical-align: middle;
 }
 th, td {
   border: 1px solid black;
@@ -34,6 +33,7 @@ input {
   text-align: center;
   font-family: Georgia, serif;
   font-size: 20px;
+  align-items: center;
 }
 .lak_bip_table {
   border-collapse: collapse;
