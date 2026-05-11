@@ -45,12 +45,17 @@ input {
   font-size: 20px;
   align-items: center;
 }
+.table_center {
+  margin: 0px auto;
+}
+/*
 .lak_bip_table {
   border-collapse: collapse;
 }
 .tol_bip_table {
   border-collapse: collapse;
 }
+*/
 h1 {
   font-family: Georgia, serif;
 }
