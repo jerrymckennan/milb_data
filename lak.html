@@ -16,9 +16,7 @@
       <p>Use the below text box to filter the hitter charts by player:</p>
       <input type="text" id="batter_input" onkeyup="batter_filter()" placeholder="Search for names.." title="Type in a name">
       <p></p>
-      <p>
-        <table border="0" id="lak_bip_table"></table>
-      </p>
+      <table border="0" id="lak_bip_table", class="table_center"></table>
       <script>
       fetch('lak_bip.json')
         .then(res => res.json())
@@ -45,7 +43,7 @@
         });
       </script>
       <h1>Lakeland hit metrics</h1>
-      <table border="0" id="lak_hit_metrics_table"></table>
+      <table border="0" id="lak_hit_metrics_table", class="table_center"></table>
       <script>
       fetch('lak_hit_metrics.json')
         .then(res => res.json())
@@ -72,7 +70,7 @@
         });
       </script>
       <h1>Lakeland batter swing metrics</h1>
-      <table border="0" id="lak_swing_metrics_table"></table>
+      <table border="0" id="lak_swing_metrics_table", class="table_center"></table>
       <script>
       fetch('lak_swing.json')
         .then(res => res.json())
@@ -103,7 +101,7 @@
       <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
       <input type="text" id="pitch_input" onkeyup="pitch_filter()" placeholder="Search for pitches.." title="Type in a pitch">
       <p></p>
-      <table border="0" id="lak_pitch_metrics_table"></table>
+      <table border="0" id="lak_pitch_metrics_table", class="table_center"></table>
       <script>
       fetch('lak_pitchers.json')
         .then(res => res.json())
@@ -130,7 +128,7 @@
         });
       </script>
       <h1>Lakeland pitching swing metrics</h1>
-      <table border="0" id="lak_pitch_swing_metrics_table"></table>
+      <table border="0" id="lak_pitch_swing_metrics_table", class="table_center"></table>
       <script>
       fetch('lak_pitching_swing.json')
         .then(res => res.json())
