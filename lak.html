@@ -16,7 +16,7 @@
       <p>Use the below text box to filter the hitter charts by player:</p>
       <input type="text" id="batter_input" onkeyup="batter_filter()" placeholder="Search for names.." title="Type in a name">
       <p></p>
-      <table border="0" id="lak_bip_table", class="table_center"></table>
+      <table border="0" id="lak_bip_table" class="table_center"></table>
       <script>
       fetch('lak_bip.json')
         .then(res => res.json())
