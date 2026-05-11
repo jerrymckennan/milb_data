@@ -40,6 +40,10 @@ input {
 .link_left, .link_right {
   width: 50%;
   padding: 10px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  align-items: center;
 }
 .lak_bip_table {
   border-collapse: collapse;
