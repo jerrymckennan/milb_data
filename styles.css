@@ -1,12 +1,12 @@
 table {
   border-style: hidden;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   align-items: center;
 }
 th, td {
   border: 1px solid black;
   border-radius: 10px;
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
   text-align: center;
   /* Georgia, serif */
   font-family: Verdana, serif;
