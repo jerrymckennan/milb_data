@@ -21,6 +21,9 @@ input {
   width: 300px;
   height: 30px;
 }
+h1 {
+  font-family: Georgia, serif;
+}
 .primary {
   text-align: center;
   font-family: Verdana, serif;
@@ -50,6 +53,26 @@ input {
 .table_center {
   margin: 0px auto;
 }
-h1 {
-  font-family: Georgia, serif;
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+.tabs {
+  display: inline-block;
+  overflow: hidden;
+  align-items: center;
+}
+.tabs button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-family: Verdana, serif;
+  font-size: 15px;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
 }

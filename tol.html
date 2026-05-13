@@ -3,157 +3,190 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="containers">
-      <div class="link_left">
-        <a href="lak.html">Lakeland data</a>
-      </div>
-      <div class="link_right">
-        <a href="index.html">Front page</a>
-      </div>
-    </div>
     <div class="TOL">
-      <h1>Toledo BIP data</h1>
-      <p>Use the below text box to filter the hitter charts by player:</p>
-      <input type="text" id="batter_input" onkeyup="batter_filter()" placeholder="Search for names.." title="Type in a name">
-      <p></p>
-      <table border="1" id="tol_bip_table" class="table_center"></table>
-      <script>
-      fetch('tol_bip.json')
-        .then(res => res.json())
-        .then(data => {
-          const table = document.getElementById('tol_bip_table');
-          // Create header row
-          const header = document.createElement('tr');
-          Object.keys(data[0]).forEach(key => {
-            const th = document.createElement('th');
-            th.textContent = key;
-            header.appendChild(th);
-          });
-          table.appendChild(header);
-          // Create data rows
-          data.forEach(item => {
-            const row = document.createElement('tr');
-            Object.values(item).forEach(value => {
-              const td = document.createElement('td');
-              td.textContent = value;
-              row.appendChild(td);
+      <div>
+          <h1>
+              Toledo data
+          </h1>
+          <p>
+              This section is used for Toledo data. You can select whether you want to view data for hitters or pitchers below.
+          </p>
+          <p>
+              Below the data points is the option to go back to the main page or view Lakeland.
+          </p>
+      </div>
+      <div class="containers">
+          <div class="link_left">
+              <div class="tabs">
+                  <button onclick="openData(event, 'hitters')">Click here for hitters</button>
+              </div>
+          </div>
+          <div class="link_right">
+              <div class="tabs">
+                  <button onclick="openData(event, 'pitchers')">Click here for pitchers</button>
+              </div>
+          </div>
+      </div>
+      <div id="hitters" class="tabcontent">
+          <p>
+              Use the below text box to filter the hitter charts by player
+          </p>
+          <input type="text" id="batter_input" onkeyup="batter_filter()" placeholder="Search for names.." title="Type in a name">
+          <p></p>
+          <h1>
+              Toledo BIP data
+          </h1>
+          <table border="1" id="tol_bip_table" class="table_center"></table>
+          <script>
+          fetch('tol_bip.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('tol_bip_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
             });
-            table.appendChild(row);
-          });
-        });
-      </script>
-      <h1>Toledo hit metrics</h1>
-      <table border="1" id="tol_hit_metrics_table" class="table_center"></table>
-      <script>
-      fetch('tol_hit_metrics.json')
-        .then(res => res.json())
-        .then(data => {
-          const table = document.getElementById('tol_hit_metrics_table');
-          // Create header row
-          const header = document.createElement('tr');
-          Object.keys(data[0]).forEach(key => {
-            const th = document.createElement('th');
-            th.textContent = key;
-            header.appendChild(th);
-          });
-          table.appendChild(header);
-          // Create data rows
-          data.forEach(item => {
-            const row = document.createElement('tr');
-            Object.values(item).forEach(value => {
-              const td = document.createElement('td');
-              td.textContent = value;
-              row.appendChild(td);
+          </script>
+          <h1>
+              Toledo hit metrics
+          </h1>
+          <table border="1" id="tol_hit_metrics_table" class="table_center"></table>
+          <script>
+          fetch('tol_hit_metrics.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('tol_hit_metrics_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
             });
-            table.appendChild(row);
-          });
-        });
-      </script>
-      <h1>Toledo swing metrics</h1>
-      <table border="1" id="tol_swing_metrics_table" class="table_center"></table>
-      <script>
-      fetch('tol_swing.json')
-        .then(res => res.json())
-        .then(data => {
-          const table = document.getElementById('tol_swing_metrics_table');
-          // Create header row
-          const header = document.createElement('tr');
-          Object.keys(data[0]).forEach(key => {
-            const th = document.createElement('th');
-            th.textContent = key;
-            header.appendChild(th);
-          });
-          table.appendChild(header);
-          // Create data rows
-          data.forEach(item => {
-            const row = document.createElement('tr');
-            Object.values(item).forEach(value => {
-              const td = document.createElement('td');
-              td.textContent = value;
-              row.appendChild(td);
+          </script>
+          <h1>
+              Toledo swing metrics
+          </h1>
+          <table border="1" id="tol_swing_metrics_table" class="table_center"></table>
+          <script>
+          fetch('tol_swing.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('tol_swing_metrics_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
             });
-            table.appendChild(row);
-          });
-        });
-      </script>
-    <h1>Toledo pitching metrics</h1>
-      <p>Use the first box to filter by pitcher, second box to filter by pitch:</p>
-      <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
-      <input type="text" id="pitch_input" onkeyup="pitch_filter()" placeholder="Search for pitches.." title="Type in a pitch">
-      <p></p>
-      <table border="1" id="tol_pitch_metrics_table" class="table_center"></table>
-      <script>
-      fetch('tol_pitchers.json')
-        .then(res => res.json())
-        .then(data => {
-          const table = document.getElementById('tol_pitch_metrics_table');
-          // Create header row
-          const header = document.createElement('tr');
-          Object.keys(data[0]).forEach(key => {
-            const th = document.createElement('th');
-            th.textContent = key;
-            header.appendChild(th);
-          });
-          table.appendChild(header);
-          // Create data rows
-          data.forEach(item => {
-            const row = document.createElement('tr');
-            Object.values(item).forEach(value => {
-              const td = document.createElement('td');
-              td.textContent = value;
-              row.appendChild(td);
+          </script>
+      </div>
+      <div id="pitchers" class="tabcontent">
+          <p>
+              Use the first box to filter by pitcher, second box to filter by pitch
+          </p>
+          <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
+          <input type="text" id="pitch_input" onkeyup="pitch_filter()" placeholder="Search for pitches.." title="Type in a pitch">
+          <p></p>
+          <h1>
+              Toledo pitching metrics
+          </h1>
+          <table border="1" id="tol_pitch_metrics_table" class="table_center"></table>
+          <script>
+          fetch('tol_pitchers.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('tol_pitch_metrics_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
             });
-            table.appendChild(row);
-          });
-        });
-      </script>
-      <h1>Toledo pitching swing metrics</h1>
-      <table border="0" id="tol_pitch_swing_metrics_table" class="table_center"></table>
-      <script>
-      fetch('tol_pitching_swing.json')
-        .then(res => res.json())
-        .then(data => {
-          const table = document.getElementById('tol_pitch_swing_metrics_table');
-          // Create header row
-          const header = document.createElement('tr');
-          Object.keys(data[0]).forEach(key => {
-            const th = document.createElement('th');
-            th.textContent = key;
-            header.appendChild(th);
-          });
-          table.appendChild(header);
-          // Create data rows
-          data.forEach(item => {
-            const row = document.createElement('tr');
-            Object.values(item).forEach(value => {
-              const td = document.createElement('td');
-              td.textContent = value;
-              row.appendChild(td);
+          </script>
+          <h1>
+              Toledo pitching swing metrics
+          </h1>
+          <table border="0" id="tol_pitch_swing_metrics_table" class="table_center"></table>
+          <script>
+          fetch('tol_pitching_swing.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('tol_pitch_swing_metrics_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
             });
-            table.appendChild(row);
-          });
-        });
-      </script>
+          </script>
+      </div>
       <script>
       function batter_filter() {
         var input, filter, table, tr, td, i, txtValue;
@@ -251,6 +284,29 @@
         }
       }
       </script>
+      <script>
+          function openData(evt, position) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(position).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+      </script>
+    </div>
+    <div class="containers">
+      <div class="link_left">
+        <a href="lak.html">Lakeland data</a>
+      </div>
+      <div class="link_right">
+        <a href="index.html">Front page</a>
+      </div>
     </div>
   </body>
 </html>
