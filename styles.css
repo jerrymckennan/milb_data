@@ -68,7 +68,6 @@ h1 {
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
-  transition: 0.3s;
   font-family: Verdana, serif;
   font-size: 15px;
   align-items: center;
@@ -77,8 +76,5 @@ h1 {
   font-weight: bold;
 }
 .tabs button:hover {
-  background-color: #D6EEEE;
-}
-.tabs button.active {
   background-color: #D6EEEE;
 }
