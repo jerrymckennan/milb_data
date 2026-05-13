@@ -76,3 +76,9 @@ h1 {
   display: inline-block;
   font-weight: bold;
 }
+.tabs button:hover {
+  background-color: #D6EEEE;
+}
+.tabs button.active {
+  background-color: #D6EEEE;
+}
