@@ -1,6 +1,5 @@
 table {
   border-style: hidden;
-  /* border-collapse: collapse; */
   align-items: center;
 }
 th, td {
@@ -8,7 +7,6 @@ th, td {
   border-radius: 10px;
   border-collapse: collapse;
   text-align: center;
-  /* Georgia, serif */
   font-family: Verdana, serif;
 }
 tr:hover td {
@@ -27,7 +25,6 @@ h1 {
 .primary {
   text-align: center;
   font-family: Verdana, serif;
-  /* 20px */
   font-size: 15px;
 }
 .containers {
@@ -77,4 +74,12 @@ h1 {
 }
 .tabs button:hover {
   background-color: #D6EEEE;
+}
+.notes {
+  text-align: center;
+  align-items: center;
+  font-family: Verdana, serif;
+  font-size: 12px;
+  font-style:italic;
+  color: #666666
 }
