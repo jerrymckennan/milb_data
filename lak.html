@@ -16,8 +16,10 @@
           </p>
       </div>
       <div class="tabs">
-          <button onclick="openData(event, 'hitters')">Click here for hitters</button>
-          <button onclick="openData(event, 'pitchers')">Click here for pitchers</button>
+          <button onclick="openData(event, 'hitters')">Click here for hitters total data</button>
+          <button onclick="openData(event, 'hitters_splits')">Click here for hitter splits</button>
+          <button onclick="openData(event, 'pitchers')">Click here for pitchers total data</button>
+          <button onclick="openData(event, 'pitchers_splits')">Click here for pitcher splits</button>
       </div>
       <div id="hitters" class="tabcontent">
           <p>
@@ -145,6 +147,200 @@
           </script>
           <p class="notes">Spray Note: < -30 degree is LF, between -30 and -15 is left-center, between -15 and 0 is center-left, between 0 and 15 is center-right, between 15 and 30 is right-center, > 30 is RF.</p>
       </div>
+      <div id="hitters_splits" class="tabcontent">
+          <p>
+              Use the below text box to filter the hitter charts by player
+          </p>
+          <input type="text" id="batter_input" onkeyup="batter_filter()" placeholder="Search for names.." title="Type in a name">
+          <input type="text" id="split_input" onkeyup="hitter_split_filter()" placeholder="Search for pitcher hand.." title="Type in pitcher hand">
+          <p></p>
+          <h1>
+              Lakeland BIP data
+          </h1>
+          <table border="0" id="lak_bip_table_sp" class="table_center"></table>
+          <script>
+          fetch('lak_bip_sp.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('lak_bip_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
+            });
+          </script>
+          <p class="notes">BIP Note: GB have launch angle < 10 degrees, Low-LD have launch angle between 10 and 17 degrees, High-LD have launch angle between 17 and 25 degrees, FB have launch angle between 25 and 50 degrees, and PU are > 50 degrees.</p>
+          <h1>
+              Lakeland hit metrics
+          </h1>
+          <table border="0" id="lak_hit_metrics_table_sp", class="table_center"></table>
+          <script>
+          fetch('lak_hit_metrics_sp.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('lak_hit_metrics_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
+            });
+          </script>
+          <p class="notes">Hit notes: Hard Hit is EV > 95, Sweet Spot is between 8 and 32 degrees, Barrels are EV > 95 hit in the air and have a combined BA >= .500 and SLG >= 1.500</p>
+          <h1>
+              Lakeland batter swing metrics
+          </h1>
+          <table border="0" id="lak_swing_metrics_table_sp", class="table_center"></table>
+          <script>
+          fetch('lak_swing_sp.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('lak_swing_metrics_table');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
+            });
+          </script>
+          <h1>
+              Lakeland spray data
+          </h1>
+          <table border="0" id="lak_spray_sp" class="table_center"></table>
+          <script>
+          fetch('lak_spray_sp.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('lak_spray');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
+            });
+          </script>
+          <p class="notes">Spray Note: < -30 degree is LF, between -30 and -15 is left-center, between -15 and 0 is center-left, between 0 and 15 is center-right, between 15 and 30 is right-center, > 30 is RF.</p>
+      </div>
+      <div id="pitchers_splits" class="tabcontent">
+          <p>
+              Use the first box to filter by pitcher, second box to filter by pitch
+          </p>
+          <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
+          <input type="text" id="pitch_input" onkeyup="pitch_filter()" placeholder="Search for pitches.." title="Type in a pitch">
+          <input type="text" id="split_input" onkeyup="pitcher_split_filter()" placeholder="Search for batter stance.." title="Type in batter stance">
+          <p></p>
+          <h1>
+              Lakeland pitching metrics
+          </h1>
+          <table border="0" id="lak_pitch_metrics_table_sp", class="table_center"></table>
+          <script>
+          fetch('lak_pitchers.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('lak_pitch_metrics_table_sp');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
+            });
+          </script>
+          <h1>
+              Lakeland pitching swing metrics
+          </h1>
+          <table border="0" id="lak_pitch_swing_metrics_table_sp", class="table_center"></table>
+          <script>
+          fetch('lak_pitching_swing.json')
+            .then(res => res.json())
+            .then(data => {
+              const table = document.getElementById('lak_pitch_swing_metrics_table_sp');
+              // Create header row
+              const header = document.createElement('tr');
+              Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                header.appendChild(th);
+              });
+              table.appendChild(header);
+              // Create data rows
+              data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                  const td = document.createElement('td');
+                  td.textContent = value;
+                  row.appendChild(td);
+                });
+                table.appendChild(row);
+              });
+            });
+          </script>
+      </div>
       <div id="pitchers" class="tabcontent">
           <p>
               Use the first box to filter by pitcher, second box to filter by pitch
@@ -269,6 +465,63 @@
               }       
             }
           }
+          function batter_split_filter() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("split_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("lak_bip_table_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+            table = document.getElementById("lak_hit_metrics_table_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+            table = document.getElementById("lak_swing_metrics_table_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+            table = document.getElementById("lak_spray_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+          }
       </script>
       <script>
           function pitcher_filter() {
@@ -307,6 +560,37 @@
             input = document.getElementById("pitch_input");
             filter = input.value.toUpperCase();
             table = document.getElementById("lak_pitch_metrics_table");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[2];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+          }
+          function split_pitcher_filter() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("split_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("lak_pitch_metrics_table_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+            table = document.getElementById("lak_pitch_swing_metrics_table_sp");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
               td = tr[i].getElementsByTagName("td")[1];
