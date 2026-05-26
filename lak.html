@@ -287,7 +287,7 @@
           </h1>
           <table border="0" id="lak_pitch_metrics_table_sp", class="table_center"></table>
           <script>
-          fetch('lak_pitchers.json')
+          fetch('lak_pitchers_splits.json')
             .then(res => res.json())
             .then(data => {
               const table = document.getElementById('lak_pitch_metrics_table_sp');
@@ -316,7 +316,7 @@
           </h1>
           <table border="0" id="lak_pitch_swing_metrics_table_sp", class="table_center"></table>
           <script>
-          fetch('lak_pitching_swing.json')
+          fetch('lak_pitching_swing_splits.json')
             .then(res => res.json())
             .then(data => {
               const table = document.getElementById('lak_pitch_swing_metrics_table_sp');
