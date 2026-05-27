@@ -278,9 +278,9 @@
           <p>
               Use the first box to filter by pitcher, second box to filter by pitch
           </p>
-          <input type="text" id="pitcher_input" onkeyup="pitcher_filter()" placeholder="Search for names.." title="Type in a name">
-          <input type="text" id="pitch_input" onkeyup="pitch_filter()" placeholder="Search for pitches.." title="Type in a pitch">
-          <input type="text" id="split_input" onkeyup="pitcher_split_filter()" placeholder="Search for batter stance.." title="Type in batter stance">
+          <input type="text" id="pitcher_sp_input" onkeyup="pitcher_split_filter()" placeholder="Search for names.." title="Type in a name">
+          <input type="text" id="pitch_sp_input" onkeyup="pitch_split_filter()" placeholder="Search for pitches.." title="Type in a pitch">
+          <input type="text" id="split_input" onkeyup="split_filter()" placeholder="Search for batter stance.." title="Type in batter stance">
           <p></p>
           <h1>
               Lakeland pitching metrics
@@ -560,6 +560,73 @@
             input = document.getElementById("pitch_input");
             filter = input.value.toUpperCase();
             table = document.getElementById("lak_pitch_metrics_table");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+          }
+          function pitcher_split_filter() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("pitcher_sp_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("lak_pitch_metrics_table_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+            table = document.getElementById("lak_pitch_metrics_table_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+          }
+          function pitch_split_filter() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("pitch_sp_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("lak_pitch_metrics_table_sp");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }       
+            }
+          }
+          function split_filter() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("split_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("lak_pitch_metrics_table_sp");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
               td = tr[i].getElementsByTagName("td")[1];
