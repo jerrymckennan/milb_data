@@ -151,7 +151,7 @@
           <p>
               Use the below text box to filter the hitter charts by player or by pitcher hand
           </p>
-          <input type="text" id="batter_input" onkeyup="hitter_split_filter()" placeholder="Search for names.." title="Type in a name">
+          <input type="text" id="batter_input_sp" onkeyup="hitter_split_filter()" placeholder="Search for names.." title="Type in a name">
           <input type="text" id="split_input_h" onkeyup="pitcher_hand_filter()" placeholder="Search for pitcher hand.." title="Type in pitcher hand">
           <p></p>
           <h1>
@@ -467,12 +467,12 @@
           }
           function hitter_split_filter() {
             var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("batter_input");
+            input = document.getElementById("batter_input_sp");
             filter = input.value.toUpperCase();
             table = document.getElementById("lak_bip_table_sp");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[1];
+              td = tr[i].getElementsByTagName("td")[0];
               if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -485,7 +485,7 @@
             table = document.getElementById("lak_hit_metrics_table_sp");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[1];
+              td = tr[i].getElementsByTagName("td")[0];
               if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -498,7 +498,7 @@
             table = document.getElementById("lak_swing_metrics_table_sp");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[1];
+              td = tr[i].getElementsByTagName("td")[0];
               if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -568,7 +568,7 @@
             table = document.getElementById("lak_spray_sp");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[0];
+              td = tr[i].getElementsByTagName("td")[1];
               if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
