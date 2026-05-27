@@ -157,12 +157,12 @@
           <h1>
               Toledo BIP data
           </h1>
-          <table border="1" id="tol_bip_table_sp" class="table_center"></table>
+          <table border="1" id="tol_bip_table" class="table_center"></table>
           <script>
           fetch('tol_bip.json')
             .then(res => res.json())
             .then(data => {
-              const table = document.getElementById('tol_bip_table_sp');
+              const table = document.getElementById('tol_bip_table');
               // Create header row
               const header = document.createElement('tr');
               Object.keys(data[0]).forEach(key => {
@@ -187,12 +187,12 @@
           <h1>
               Toledo hit metrics
           </h1>
-          <table border="1" id="tol_hit_metrics_table_sp" class="table_center"></table>
+          <table border="1" id="tol_hit_metrics_table" class="table_center"></table>
           <script>
           fetch('tol_hit_metrics.json')
             .then(res => res.json())
             .then(data => {
-              const table = document.getElementById('tol_hit_metrics_table_sp');
+              const table = document.getElementById('tol_hit_metrics_table');
               // Create header row
               const header = document.createElement('tr');
               Object.keys(data[0]).forEach(key => {
@@ -217,12 +217,12 @@
           <h1>
               Toledo swing metrics
           </h1>
-          <table border="1" id="tol_swing_metrics_table_sp" class="table_center"></table>
+          <table border="1" id="tol_swing_metrics_table" class="table_center"></table>
           <script>
           fetch('tol_swing.json')
             .then(res => res.json())
             .then(data => {
-              const table = document.getElementById('tol_swing_metrics_table_sp');
+              const table = document.getElementById('tol_swing_metrics_table');
               // Create header row
               const header = document.createElement('tr');
               Object.keys(data[0]).forEach(key => {
@@ -246,12 +246,12 @@
           <h1>
               Toledo spray data
           </h1>
-          <table border="0" id="tol_spray_sp" class="table_center"></table>
+          <table border="0" id="tol_spray" class="table_center"></table>
           <script>
           fetch('tol_spray.json')
             .then(res => res.json())
             .then(data => {
-              const table = document.getElementById('tol_spray_sp');
+              const table = document.getElementById('tol_spray');
               // Create header row
               const header = document.createElement('tr');
               Object.keys(data[0]).forEach(key => {
